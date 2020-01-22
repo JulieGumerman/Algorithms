@@ -3,29 +3,19 @@
 import argparse
 
 def find_max_profit(prices):
-  cur_min_price = 0
-  cur_max_price = 0
-  cur_max_profit = 0
-
-  for x in prices:
-    if x == 0:
-      pass
-    elif x > cur_max_price:
-      cur_max_price = x
-      max_price_index = prices.index(cur_max_price)
-      temp_arr = prices[:max_price_index]
-
-      for j in temp_arr:
-        if cur_min_price == 0:
-          cur_min_price = j
-        elif len(temp_arr)==2:
-          cur_min_price = temp_arr[0]
-          cur_max_price = temp_arr[1]
-        elif j < cur_min_price:
-          cur_min_price = j
-        
-  cur_max_profit = cur_max_price - cur_min_price
-  return cur_max_profit
+  max_profit = 0
+  max_index = (prices.index(max(prices))) # finding index of the max value in list
+  if max_index == 0: 
+    new_arr_minus_max = prices[1:] # making a new list if the maximum value is in index[0]
+    max_index_new = max(new_arr_minus_max) # max of new list (new_arr_minus_max)
+    if max_index_new is new_arr_minus_max[0]: # if that new max is in index[0] of new array
+      return (max_index_new - max(prices)) # new list max - the max of the old list
+    else: 
+      return (max(new_arr_minus_max) - min(new_arr_minus_max)) # new list max - new list min
+  else:
+    # split the array left and right (where the biggest value is)
+    new_arr = prices[0:max_index + 1]
+    return (max(new_arr) - min(new_arr))
 
 
 
