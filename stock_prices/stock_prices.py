@@ -8,15 +8,24 @@ def find_max_profit(prices):
   cur_max_profit = 0
 
   for x in prices:
-    if cur_min_price == 0:
-      cur_min_price = x
-    elif x < cur_min_price :
-      cur_min_price = x
-    if x > cur_max_price:
+    if x == 0:
+      pass
+    elif x > cur_max_price:
       cur_max_price = x
-    
-  maximum = cur_max_price - cur_min_price
-  return maximum
+      max_price_index = prices.index(cur_max_price)
+      temp_arr = prices[:max_price_index]
+
+      for j in temp_arr:
+        if cur_min_price == 0:
+          cur_min_price = j
+        elif len(temp_arr)==2:
+          cur_min_price = temp_arr[0]
+          cur_max_price = temp_arr[1]
+        elif j < cur_min_price:
+          cur_min_price = j
+        
+  cur_max_profit = cur_max_price - cur_min_price
+  return cur_max_profit
 
 
 
