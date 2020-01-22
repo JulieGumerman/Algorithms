@@ -3,7 +3,22 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+
+  #if ingredient amounts are LESS than those in the recipe amounts, return 0
+  if len(recipe) > len(ingredients):
+    return 0
+  #if ingredient amounts are EQUAL TO or MORE, do division 
+  else:
+    for x in range(recipe):
+
+      #if x < y in ingredients, divide and stash in array of its own
+      # if x > y in ingredients, return 0
+
+
+
+
+recipe_batches({ 'milk': 2 }, { 'milk': 200})
+
 
 
 if __name__ == '__main__':
