@@ -4,12 +4,18 @@ import math
 
 def recipe_batches(recipe, ingredients):
 
+  ingredient_amounts = []
   #if ingredient amounts are LESS than those in the recipe amounts, return 0
   if len(recipe) > len(ingredients):
     return 0
   #if ingredient amounts are EQUAL TO or MORE, do division 
   else:
-    for x in range(recipe):
+    for x in recipe:
+      if recipe.get(x) <= ingredients.get(x):
+        ingredient_amounts.append(ingredients.get(x)//recipe.get(x))
+      else:
+        return 0
+  return min(ingredient_amounts)
 
       #if x < y in ingredients, divide and stash in array of its own
       # if x > y in ingredients, return 0
