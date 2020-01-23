@@ -5,26 +5,15 @@ import itertools
 
 def rock_paper_scissors(n):
   rps = ['rock', 'paper', 'scissors']
-  rpsn = rps * n
   combinations = []
 
-  if n == 0:
-    return [[]]
-  elif n == 1:
-    for x in rpsn:
-      new = [x]
-      combinations.append(new)
-  elif n == 2:
-    for x in rpsn:
-      for y in rpsn:
-        new = [x, y]
-        combinations.append(new)
-  elif n == 3:
-    for x in rpsn:
-      for y in rpsn:
-        for z in rpsn:
-          new = [x, y, z]
-          combinations.append(new)
+  def calc_rps(n: int, result: list):
+    if n == 0:
+      return combinations.append(result)
+    for y in rps:
+      calc_rps(n-1, result + [y])
+  calc_rps(n, [])
+  
   return combinations
 
 if __name__ == "__main__":
