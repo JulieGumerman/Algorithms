@@ -1,9 +1,14 @@
 #!/usr/bin/python
 
 import sys
+import itertools
 
 def rock_paper_scissors(n):
-  pass 
+  rps = ['rock', 'paper', 'scissors']
+  rpsn = rps * n
+
+  return rpsn
+
 
 
 if __name__ == "__main__":
